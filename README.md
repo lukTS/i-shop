@@ -12,6 +12,21 @@ This is a knife store web application built using React and Redux with TypeScrip
 - **Bonus Program Page**: Information about the bonus program available to customers.
 - **Discount Page**: Details on available discounts for products.
 
+## Versions of the Server
+
+This project contains two versions of the server:
+
+1. **File-based storage (Main)**: The main version of the server that stores data in a `db.json` file. This method is lightweight and simple, which makes it particularly convenient for initial development and testing phases. It allows rapid changes to the data structure and provides an easy-to-maintain solution without the overhead of managing a full database.
+   
+2. **MongoDB (Development)**: The MongoDB version of the server is a more scalable solution for production environments. This database allows for more efficient querying, better data management, and supports complex features like user roles, product filtering, and order management.
+
+### Why keep the file-based server?
+
+The file-based `db.json` server is kept for the following reasons:
+- **Ease of development**: It allows quick setup without the need for additional database infrastructure.
+- **Simple data management**: Useful for developers and testers who need an easily editable, local storage solution.
+- **Rapid prototyping**: Ideal for trying out new features before committing to a more complex database system like MongoDB.
+
 ## Technologies
 
 - **React**: For building the client-side application.
@@ -36,7 +51,7 @@ This is a knife store web application built using React and Redux with TypeScrip
    ```bash
    npm start
 
-### Server-side
+### Server-side (File-based storage)
 
 1. Navigate to the server directory:
    ```bash
@@ -45,6 +60,23 @@ This is a knife store web application built using React and Redux with TypeScrip
    ```bash
    npm install
 3. Start the server:
+   ```bash
+   node server.js
+
+### Server-side (MongoDB)
+
+1. Switch to the mongodb-server branch:
+   ```bash
+   git checkout mongodb-server
+2. Install dependencies:
+   ```bash
+   npm install
+3. Set up your MongoDB connection in the .env file.
+
+4. Navigate to the server directory:
+   ```bash
+   cd server
+5. Start the server:
    ```bash
    node server.js
 
@@ -103,9 +135,17 @@ The client will run on http://localhost:3000, and the server will run on http://
 
 This project is still under development and will be expanded with new features. Below are some planned improvements:
 
-1. Switch to MongoDB: Replace the current db.json database with MongoDB to provide a more scalable database solution.
-2. Admin Panel: Implement an admin panel where authorized users (e.g., store owners) can add, update, and delete products, as well as manage orders. Only a few select users will have access to this panel.
-3. Advanced Product Filters: Enhance the catalog with more advanced filtering options for easier product discovery.
+1. Admin Panel: Implement an admin panel where authorized users (e.g., store owners) can:
+
+- Add, update, and delete products.
+- Manage orders and customer information.
+- Track inventory and sales statistics.
+This feature will allow easier site management and streamline product updates.
+
+2. Payment Integration: Connect payment systems (such as Stripe or PayPal) to handle transactions securely. Customers will be able to pay for their orders directly through the website during checkout.
+
+3. Advanced Product Filters: Enhance the catalog with more advanced filtering options for easier product discovery. This will include filtering by price range, material, or purpose (e.g., camping, hunting, etc.).
+
 4. Bonus and Discount System: Extend the bonus and discount pages with functionality to allow users to apply discounts or bonus points during checkout.
 
 ## Usage
