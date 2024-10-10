@@ -32,3 +32,10 @@
   width: 100%;
   background-color: $basic-gray-border;
 }
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

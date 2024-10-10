@@ -13,7 +13,6 @@
   width: 60px;
 }
 
-
 .cardContainer {
   flex-direction: column;
   display: flex;
@@ -28,4 +27,11 @@
 
 .cardContainer h3:hover {
   color: $main-color-hover;
+}
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
