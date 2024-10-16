@@ -27,9 +27,9 @@ const Cart: React.FC = () => {
             {cartNames.map((item) => <div className={styles.title} key ={item}>{item}</div>)}
           </div>
           <div className={styles.containerProducts}>
-            {
+            { 
               cartProducts.length > 0 
-              ? cartProducts.map((item) => <ProductCardCart key = {item.product.id} cartProduct = {item} />) 
+              ? cartProducts.map((item) => <ProductCardCart key = {item.product._id} cartProduct = {item} />) 
               : <p className={styles.emptyCart}>The Cart is empty</p>
             }
           </div>

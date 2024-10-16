@@ -9,6 +9,7 @@ import styles from './Home.module.scss'
 import Slider from '../../components/Slider'
 import CategoryLinksSection from '../../components/CategoryLinksSection'
 import { AppDispatch, RootState } from '../../store'
+import Loader from '../../components/UI/Loader'
 
 const Home: React.FC = () => {
   const dispatch: AppDispatch = useDispatch()
@@ -20,9 +21,8 @@ const Home: React.FC = () => {
   const newProducts = useSelector((state:RootState) => state.products.newProducts)
   const statusNewProducts = useSelector((state:RootState) => state.products.statusNewProducts)
   const errorNewProducts = useSelector((state:RootState) => state.products.errorNewProducts)
-
   if (statusNewProducts === 'loading') {
-    return <div>Loading...</div> 
+    return <div className={styles.loaderContainer}><Loader /></div> 
   }
 
   if (statusNewProducts === 'failed') {
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       </div>
       <div className={styles.cardContainer}> 
         {newProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
       <Footer />

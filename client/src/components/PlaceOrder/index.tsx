@@ -31,7 +31,7 @@ const PlaceOrder: React.FC = () => {
       <h3>You have chosen</h3>
       <p>{
         cartProducts.map((item) => {
-          return (<span key = {item.product.id}> {item.product.name}  -  {item.quantity} pieces, </span>)
+          return (<span key = {item.product._id}> {item.product.name}  -  {item.quantity} pieces, </span>)
         })
       }</p>
       <h3>Payment methods</h3>

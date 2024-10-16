@@ -5,7 +5,7 @@ import axiosInstance from '../axiosConfig'
 // Request to get all products or products by category
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async (categoryId: string | undefined | null = null, { rejectWithValue }) => {
   try {
-    let response;
+    let response
     if (categoryId) {
       // Query products by category
       response = await axiosInstance.get(`/products?category_id=${categoryId}`)
@@ -24,10 +24,10 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async (c
   }
 })
 
-// Запрос на получение новых продуктов
+// Request for new products
 export const fetchNewProducts = createAsyncThunk('products/fetchNewProducts', async (_, { rejectWithValue }) => {   
   try {
-    const response = await axiosInstance.get('/products?isNew=true')  
+    const response = await axiosInstance.get('/products?isNewProduct=true')  
     if (response.status !== 200) {
       throw new Error('Failed to fetch new products')
     }  
@@ -35,6 +35,6 @@ export const fetchNewProducts = createAsyncThunk('products/fetchNewProducts', as
   } catch (error) {
     console.error("Fetch products error:", error) // Error logging
     const message = axios.isAxiosError(error) && error.message
-    return message ? rejectWithValue(message) : rejectWithValue('Unknown error');
+    return message ? rejectWithValue(message) : rejectWithValue('Unknown error')
  }
 })

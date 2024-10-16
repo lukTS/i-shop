@@ -64,11 +64,11 @@ const Login: React.FC = () => {
   const handleGoogleSuccess = async (response: CredentialResponse) => {
     try {
       if (response.credential) {
-        const decoded = jwtDecode(response.credential) // Декодируем JWT-токен Google
-        console.log('Google User:', decoded) // Выводим декодированные данные для проверки
+        const decoded = jwtDecode(response.credential) // Decoding the Google JWT token
+        console.log('Google User:', decoded) // We output the decoded data for verification
         
-        // Отправляем токен на сервер для аутентификации
-        dispatch(loginWithGoogle(response.credential)) // Отправляем сам токен
+        // Send the token to the server for authentication
+        dispatch(loginWithGoogle(response.credential)) // We send the token itself
         setIsSubmitting(true)
       } else {
         throw new Error('No credential found in response')
