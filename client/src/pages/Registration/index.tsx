@@ -20,7 +20,7 @@ const Registration: React.FC = () => {
   const [error, setError] = useState('')
 
   const dispatch: AppDispatch = useDispatch()
-  const { statusRegistration, errorRegistration } = useSelector((state: RootState) => state.auth)
+  const { statusRegistration, errorRegistration } = useSelector((state:RootState) => state.auth)
 
   // Flag to track completion of registration action
   const [actionCompleted, setActionCompleted] = useState(false)
@@ -35,48 +35,37 @@ const Registration: React.FC = () => {
     }
   }, [statusRegistration, errorRegistration, actionCompleted]) // Restart effect when status or error changes
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    // Проверка совпадения паролей
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      toast.error('Passwords do not match');
-      return;
+      setError('Passwords do not match')
+      toast.error('Passwords do not match')
+      return
     }
-  
+
+    // Check for minimum password length (6 characters)
     if (password.length < 6) {
-      setError('Password must be at least 6 characters long');
-      toast.error('Password must be at least 6 characters long');
-      return;
+      setError('Password must be at least 6 characters long')
+      toast.error('Password must be at least 6 characters long')
+      return
     }
-  
-    setError('');
-  
-    try {
-      // Измените на await dispatch и проверку на unwrap
-      const resultAction = await dispatch(registerUser({ firstName, lastName, email, password, phone, address }));
-  
-      if (registerUser.fulfilled.match(resultAction)) {
-        setActionCompleted(true);
-        // Reset form values
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-        setPhone('');
-        setAddress('');
-      } else {
-        // Здесь обработка ошибки
-        const errorMsg = resultAction.payload as string; // предполагается, что payload содержит строку
-        setError(errorMsg);
-        toast.error(errorMsg);
-      }
-    } catch (err) {
-      // Обработка других ошибок, если нужно
-      setError('An unexpected error occurred.');
-      toast.error('An unexpected error occurred.');
-    }
+
+    // Clearing errors before sending data
+    setError('')
+
+    dispatch(registerUser({ firstName, lastName, email, password, phone, address}));
+    setActionCompleted(true) // Set a flag to show a notification after registration is complete
+
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setPassword('')
+    setConfirmPassword('')
+    setPhone('')
+    setAddress('')
+    setError('')
   }
 
   return (
@@ -134,6 +123,7 @@ const Registration: React.FC = () => {
             placeholder='Address'
             required
           />
+          {error && <p className={styles.error}>{error}</p>} {/* Отображение ошибок */}
           <UiButton type='submit' className={styles.buttonStyleCorrection} disabled={statusRegistration === 'loading'}>
             {statusRegistration === 'loading' ? 'Registering...' : 'Register'}
           </UiButton>

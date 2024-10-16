@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import './styles/_variables.scss'
+import './App.css'
 import './styles/_global.scss'
+import './styles/_variables.scss'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 import routesConfig from './data/routesConfig'

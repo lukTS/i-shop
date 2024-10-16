@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import './styles/_variables.scss'
-import './styles/_global.scss'
 
 const rootElement = document.getElementById('root')
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || ''

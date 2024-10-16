@@ -1,14 +1,13 @@
 import styles from './CategoryLinksSection.module.scss'
 import { Link } from 'react-router-dom'
 import { useFetchCategories } from '../../hooks/useFetchCategories'
-import Loader from '../UI/Loader'
 
 const CategoryLinksSection: React.FC = () => {
 
   const { categories, isLoading, noCategories } = useFetchCategories()
 
   if (isLoading) {
-      return <div className={styles.loaderContainer}><Loader /></div>
+      return <div>Loading...</div>
   }
   if (noCategories) {
     return <div>No categories available.</div>

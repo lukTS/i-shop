@@ -28,7 +28,7 @@ const cartSlice = createSlice({
       state.totalPrice = parseFloat((currentTotalPrice + productPrice).toFixed(2))
       state.totalQuantity += 1
     
-      const existingProduct = state.cartProducts.find((item) => item.product._id === product._id)
+      const existingProduct = state.cartProducts.find((item) => item.product.id === product.id)
     
       if (existingProduct) {
         existingProduct.quantity += 1
@@ -40,21 +40,21 @@ const cartSlice = createSlice({
     },
 
     clearProductFromCart(state, action) {
-      const productId = action.payload._id
-      const existingProduct = state.cartProducts.find(item => item.product._id === productId)
+      const productId = action.payload.id
+      const existingProduct = state.cartProducts.find(item => item.product.id === productId)
 
       if (existingProduct) {
         state.totalPrice = parseFloat((state.totalPrice - existingProduct.product.price * existingProduct.quantity).toFixed(2))
         state.totalQuantity -= existingProduct.quantity
-        state.cartProducts = state.cartProducts.filter((item) => item.product._id !== productId)
+        state.cartProducts = state.cartProducts.filter((item) => item.product.id !== productId)
       }
 
       updateLocalStorage(state)
     },
 
     removeFromCart(state, action) {
-      const productId = action.payload._id
-      const existingProduct = state.cartProducts.find(item => item.product._id === productId)
+      const productId = action.payload.id
+      const existingProduct = state.cartProducts.find(item => item.product.id === productId)
 
       if (existingProduct) {
         if (existingProduct.quantity > 1) {
@@ -62,7 +62,7 @@ const cartSlice = createSlice({
           state.totalPrice = parseFloat((state.totalPrice - existingProduct.product.price).toFixed(2))
           state.totalQuantity -= 1
         } else {
-          state.cartProducts = state.cartProducts.filter(item => item.product._id !== productId)
+          state.cartProducts = state.cartProducts.filter(item => item.product.id !== productId)
           state.totalPrice = parseFloat((state.totalPrice - existingProduct.product.price).toFixed(2))
           state.totalQuantity -= 1
         }

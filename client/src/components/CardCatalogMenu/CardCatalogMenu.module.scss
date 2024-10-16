@@ -1,5 +1,4 @@
 @import '../../styles/variables';
-@import '../../styles/mixins';
 
 .container {
   display: flex;
@@ -8,52 +7,10 @@
   margin-bottom: 40px;
   align-items: center;
   background-color: $basic-gray-background;
-
-  @include respond-to(x-small) {
-    padding: 0 30px;
-  }
-  
-  @include respond-to(small) {
-    padding: 0 50px;
-  }
-
-  @include respond-to(medium) {
-    padding: 0 80px;
-  }
-
-  @include respond-to(large) {
-    padding: 0 140px;
-  }
-
-  @include respond-to(x-large) {
-    padding: 0 140px;
-  }
 }
 
-.catalogItemName {
+.aaaa {
   font-size: 30px;
-  margin: 0;
-  padding: 0;
-
-  @include respond-to(x-small) {
-    font-size: 11px;
-  }
-  
-  @include respond-to(small) {
-    font-size: 16px;
-  }
-
-  @include respond-to(medium) {
-    font-size: 22px;
-  }
-
-  @include respond-to(large) {
-    font-size: 28px;
-  }
-
-  @include respond-to(x-large) {
-    font-size: 30px;
-  }
 }
 
 .cardImg {
@@ -62,7 +19,6 @@
 }
 
 .cardIcon {
-  width: 10%;
-  height: auto;
+  width: 80px;
+  height: 80px;
 }
-
