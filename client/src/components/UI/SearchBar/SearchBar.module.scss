@@ -3,8 +3,8 @@
 .searchContainer {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 0;
+    width: 350px;
+    margin: 0 auto;
     padding: 3px 15px;
     border: 1px solid $basic-gray-border;
     border-radius: 10px;

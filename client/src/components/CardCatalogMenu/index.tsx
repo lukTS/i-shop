@@ -9,7 +9,7 @@ const CardCatalogMenu: React.FC <CardCatalogMenuProps> = ({category}) => {
     <div className={styles.container}>
       <img className = {styles.cardImg} src={img1} alt={name} />
       <img className = {styles.cardIcon} src={icon} alt={name} />
-      <h2 className = {styles.catalogItemName}>{name}</h2>
+      <h2 className = {styles.aaaa}>{name}</h2>
       <img className = {styles.cardImg} src={img2} alt={name} />
     </div>
   )

@@ -6,7 +6,7 @@ import { RootState } from './index'
 export const sendingOrder = createAsyncThunk(
   'cart/sendingOrder',
   async ({ user, cartProducts, totalPrice }: OrderPayload, { getState, rejectWithValue }) => {
-      const goods = cartProducts.map((item) => ({product_id: item.product._id, product_price: item.product.price, quantity: item.quantity}))
+      const goods = cartProducts.map((item) => ({product_id: item.product.id, product_price: item.product.price, quantity: item.quantity}))
       const order = {
         shippingAddress: user.address,
         totalPrice: totalPrice,
@@ -27,7 +27,7 @@ export const sendingOrder = createAsyncThunk(
         headers: {
           Authorization: `Bearer ${token}`
         }
-      })
+      });
       return response.data
     } catch (error) {
       return rejectWithValue('Order sending failed')

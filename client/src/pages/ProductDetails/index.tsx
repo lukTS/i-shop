@@ -10,7 +10,6 @@ import { toast } from 'react-toastify'
 import { addToCart } from '../../store/cartSlice'
 import { RootState, AppDispatch } from '../../store'
 import { Product } from "../../types/Product";
-import Loader from "../../components/UI/Loader";
 
 const ProductDetails: React.FC = () => {
   const dispatch: AppDispatch = useDispatch()
@@ -28,10 +27,10 @@ const ProductDetails: React.FC = () => {
     }
   }, [dispatch, status])
 
-  const product: Product | undefined = products.find(item => item._id === id)
+  const product: Product | undefined = products.find(item => item.id === id)
 
-  // Display loading status or error
-  if (status === 'loading') return <div className={styles.loaderContainer}><Loader /></div>
+  // Отображение состояния загрузки или ошибки
+  if (status === 'loading') return <p>Loading...</p>
   if (status === 'failed') return <p>Error loading product</p>
 
   return (

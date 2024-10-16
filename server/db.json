@@ -280,29 +280,6 @@
         ]
       },
       "userId": "1727016262739"
-    },
-    {
-      "id": "1727795798828",
-      "order": {
-        "shippingAddress": "Brunenweg 26",
-        "totalPrice": 159.95,
-        "status": "pending",
-        "createdAt": "2024-10-01T15:16:38.815Z",
-        "updatedAt": "2024-10-01T15:16:38.815Z",
-        "goods": [
-          {
-            "product_id": "2",
-            "product_price": 49.99,
-            "quantity": 2
-          },
-          {
-            "product_id": "3",
-            "product_price": 19.99,
-            "quantity": 3
-          }
-        ]
-      },
-      "userId": "1727016262739"
     }
   ]
 }

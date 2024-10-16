@@ -12,7 +12,7 @@ const SearchPage: React.FC = () => {
       <Header />
       <h1>Search result for your request</h1>
       <div className={styles.cardContainer}>
-        {searchResults.map((item) => <ProductCard key = {item._id} product = {item} /> )}
+        {searchResults.map((item) => <ProductCard key = {item.id} product = {item} /> )}
       </div>
       <Footer />
     </>

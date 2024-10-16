@@ -8,7 +8,7 @@ import { AppDispatch } from '../../store'
 import { ProductCardProps } from '../../types/Product'
 
 const ProductCard: React.FC <ProductCardProps> = ({product}) => {
-  const {name, shortDescription, price, image_url, _id} = product
+  const {name, shortDescription, price, image_url, id} = product
   const dispatch: AppDispatch = useDispatch()
   const handleAddToCart = () => {
       dispatch(addToCart(product))
@@ -19,7 +19,7 @@ const ProductCard: React.FC <ProductCardProps> = ({product}) => {
         <img src={image_url} alt={name} className={styles.productImage} />
         <div className={styles.productDetails}>
           <h2 className={styles.productName}>{name}</h2>
-          <Link to = {`/product/${product._id}`}>
+          <Link to = {`/product/${id}`}>
             <p className={styles.productDescription}>{shortDescription}<span className={styles.productDescriptionMore}> more</span></p>
          </Link>
           <div className={styles.productFooter}>
