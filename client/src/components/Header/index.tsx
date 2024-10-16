@@ -72,8 +72,8 @@ const Header:React.FC = () => {
 
   return (
     <header className={styles.container}>
-      <Link to='/discount'>
-        <img className={styles.discount} src='/images/baner.jpg' alt='Discount Banner'/>
+      <Link className={styles.discount} to='/discount'>
+        <div className={styles.banner}></div>
       </Link>
       <div className={styles.grayBlock}>
         <div className={styles.homeContainer}>
@@ -115,15 +115,14 @@ const Header:React.FC = () => {
             <img className={styles.logo} src='/images/LOGO.png' alt='Logo'/>
           </Link>
         </div>
-        <div className={styles.searchContainer}>
-          <SearchBar onChange={handleSearchChange} placeholder="Search..." onKeyDown={handleKeyPress} />
+        <div className={styles.containerForSearchPanel}>
+          <SearchBar className={styles.searchBar} onChange={handleSearchChange} placeholder="Search..." onKeyDown={handleKeyPress} />
           <UiButton onClick={handleSearch}>Search</UiButton>
         </div>
         <Link to='/freeshipping'>
           <div className={styles.freeShippingContainer}>
-            <p><strong>Free shipping worldwide</strong></p>
-            <p>just place an order</p>
-            <p>over $500</p>
+            <p><strong>Free shipping worldwide</strong> just place an order over $500</p>
+
           </div>
         </Link>
       </div>
@@ -132,7 +131,7 @@ const Header:React.FC = () => {
       <ModalWindow isOpen={isModalOpen} onClose={cancelLogout}>
         <p className={styles.exitTitle}>Are you sure you want to exit?</p>
         <div className={styles.containerModalWindowButton}>
-          <UiButton className={styles.changeButtonYes} onClick={confirmLogout}>Yss</UiButton>
+          <UiButton className={styles.changeButtonYes} onClick={confirmLogout}>Yes</UiButton>
           <UiButton className={styles.changeButtonNo} onClick={cancelLogout}>No</UiButton>
         </div>
       </ModalWindow>

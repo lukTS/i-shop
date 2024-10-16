@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .container {
   display: flex;
@@ -7,6 +8,27 @@
 	background-color: $basic-gray-background;
   padding: 40px $container-padding;
   gap: 30px;
+  flex-wrap: wrap;
+
+  @include respond-to(x-small) {
+    justify-content: center;
+  }
+  
+  @include respond-to(small) {
+    justify-content: center;
+  }
+
+  @include respond-to(medium) {
+    justify-content: center;
+  }
+
+  @include respond-to(large) {
+    justify-content: center;
+  }
+
+  @include respond-to(x-large) {
+    justify-content: space-between;
+  }
 }
 
 .container img {
@@ -17,6 +39,7 @@
   flex-direction: column;
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .cardContainer h3 {
